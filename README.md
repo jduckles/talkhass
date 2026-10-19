@@ -14,6 +14,7 @@ and the three ways to run it.
 | `assets/recorder.svg` | Diagram: event bus → recorder → SQLite → history. |
 | `assets/power-cycle.svg` | Chart: appliance power draw with start/finish thresholds. |
 | `package.json` | Marp CLI scripts. |
+| `.github/workflows/pages.yml` | CI: build the deck and publish it to the `html` branch. |
 
 ## Build
 
@@ -38,6 +39,38 @@ npx @marp-team/marp-cli --theme-set themes --preview slides.md
 ```
 
 The preview script watches `slides.md` and `themes/hass.css`.
+
+## Publish to GitHub Pages
+
+`.github/workflows/pages.yml` builds the deck on every push to `main` and
+force-pushes a single commit to the `html` branch. GitHub Pages serves that
+branch. The workflow also adds `index.html` (a copy of `slides.html`) and
+`.nojekyll` so the site root and all SVG assets work unchanged.
+
+One-time setup:
+
+1. Push this repo to GitHub, including `package-lock.json`.
+2. Let the workflow run once (**Actions → Publish slides**), or run it manually
+   with **Run workflow**. This creates the `html` branch.
+3. **Settings → Pages → Build and deployment**:
+   - Source: **Deploy from a branch**
+   - Branch: **`html`**, folder **`/ (root)`**
+   - Save.
+
+Every later push to `main` rebuilds and redeploys. The deck is then at
+`https://<owner>.github.io/<repo>/` (for this repo:
+`https://jduckles.github.io/talkhass/`).
+
+Notes:
+
+- The workflow needs `contents: write`, which is declared in the file. If your
+  organization restricts `GITHUB_TOKEN` permissions, enable write access under
+  **Settings → Actions → General → Workflow permissions**.
+- PDF and PPTX are not built in CI: they need a local Chrome/Chromium. Run
+  `npm run pdf` or `npm run pptx` and commit/attach the output if you want
+  downloadable slides.
+- `force_orphan: true` keeps the `html` branch to one commit per deploy, so it
+  never accumulates build history.
 
 ## Editing
 
