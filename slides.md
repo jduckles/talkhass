@@ -17,10 +17,10 @@ highlight: github-dark
 
 Everything you can know about your home — and everything you can do about it.
 
-<!--
-Welcome. This talk is not a product tour. It is a mental model:
-Home Assistant is a state engine, and every feature is downstream of that.
--->
+Slides available at: https://jduckles.github.io/talkhass/
+
+## Jonah Duckles 
+### ZL4EKA
 
 ---
 
