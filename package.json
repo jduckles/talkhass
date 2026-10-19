@@ -1,0 +1,16 @@
+{
+  "name": "talk-home-assistant-state-engine",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Marp deck: Home Assistant as a state engine for your house",
+  "scripts": {
+    "preview": "marp --preview slides.md --theme-set themes",
+    "build": "mkdir -p dist && cp -r assets dist && marp slides.md --theme-set themes -o dist/slides.html",
+    "pdf": "marp slides.md --theme-set themes --allow-local-files --pdf -o dist/slides.pdf",
+    "pptx": "marp slides.md --theme-set themes --allow-local-files --pptx -o dist/slides.pptx",
+    "png": "marp slides.md --theme-set themes --allow-local-files --images png -o dist/slides.png"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.5.1"
+  }
+}
