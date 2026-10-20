@@ -410,3 +410,83 @@ section pre,
 section img {
   flex-shrink: 0;
 }
+
+/* Stat grid for the project-numbers slide. */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 0.5em;
+}
+
+.stat {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+
+.stat span {
+  display: block;
+  color: var(--accent-deep);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.8px;
+}
+
+.stat small {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.3;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Pasted screenshots: bound the height, let width follow.
+ * 330px is the tallest image that clears the title and footer on a 16:9 slide. */
+section.screenshot img {
+  max-width: 100%;
+  max-height: 330px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+section.screenshot .columns img {
+  max-height: 330px;
+}
+
+/* Paired screenshots at the same scale: size both by height so the
+ * scale factor matches; center the pair instead of stretching columns. */
+.image-pair {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 44px;
+  margin-top: 1em;
+}
+
+.image-pair img {
+  margin: 0;
+}
+
+section.screenshot .image-pair img {
+  max-height: 360px;
+}
+
+/* Full-width diagram slide: tighter chrome so the block model can breathe. */
+section.diagram {
+  padding: 26px 40px 30px;
+}
+
+section.diagram h1 {
+  font-size: 34px;
+  margin-bottom: 0.2em;
+}
+
+section.diagram .callout {
+  font-size: 18px;
+  padding: 9px 16px;
+  margin: 0.35em 0 0;
+}

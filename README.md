@@ -2,7 +2,7 @@
 
 A [Marp](https://marp.app/) talk template about Home Assistant as a state engine —
 the states you can know about a house, how to infer the ones you cannot measure,
-and the three ways to run it.
+the three ways to run it, the project's history, and the hardware Nabu Casa builds.
 
 ## Files
 
@@ -12,6 +12,8 @@ and the three ways to run it.
 | `themes/hass.css` | Custom Marp theme (`theme: hass`). Reskin the deck here. |
 | `assets/state-loop.svg` | Diagram: devices → integrations → state machine → automations. |
 | `assets/recorder.svg` | Diagram: event bus → recorder → SQLite → history. |
+| `assets/timeline.svg` | Diagram: project history from 2013 to today. |
+| `assets/architecture.svg` | Block model: core, extensions, database, web UI, mobile apps. |
 | `assets/power-cycle.svg` | Chart: appliance power draw with start/finish thresholds. |
 | `package.json` | Marp CLI scripts. |
 | `.github/workflows/pages.yml` | CI: build the deck and publish it to the `html` branch. |
@@ -82,6 +84,30 @@ Notes:
 - **Layouts** use plain HTML (`<div class="columns">`, `.callout`, `.pill`,
   `.big`, `.muted`, `.small`). HTML is enabled by default in Marp CLI.
 - **Math** works via Marp's built-in KaTeX (`$…$`, `$$…$$`) if you add it.
+
+## Images
+
+The deck is 960×540 CSS px. With the theme's padding and a title, about **330 px
+of height** is available for an image. Pasted screenshots are often 2500 px wide,
+so never leave them unsized.
+
+- **Bounded height (recommended for screenshots):** put
+  `<!-- _class: screenshot -->` before the slide title. The theme caps every
+  image on that slide at `max-height: 330px` and scales width proportionally.
+- **Per-image sizing:** `![h:330](assets/shot.png)` for tall screenshots;
+  `![w:860](assets/chart.png)` for wide charts whose height is naturally small.
+- **Side by side, same scale:** give both images heights proportional to their
+  source pixel heights, so the scale factor matches (text stays the same size).
+  For example, 930 px and 1368 px sources at `h:245` and `h:360` both scale by
+  about 0.263. Wrap them in `.image-pair` to center the pair.
+- **Crop first.** A tight 1400 px crop of the cards you are discussing reads far
+  better than the full browser window. The best fix is usually fewer pixels, not
+  a smaller scale.
+- **Full-bleed:** `![bg contain](assets/shot.png)` fits the whole image;
+  `bg cover` crops it. Use `contain` for screenshots.
+- **Source size:** export at roughly 1600–2000 px wide (2× the slide) and
+  compress. Multi-megapixel PNGs bloat the repo and slow the Pages build without
+  looking sharper on a projector.
 
 ## Theme
 

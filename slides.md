@@ -19,8 +19,11 @@ Everything you can know about your home — and everything you can do about it.
 
 Slides available at: https://jduckles.github.io/talkhass/
 
-## Jonah Duckles 
-### ZL4EKA
+
+
+## Jonah Duckles - ZL4EKA
+
+Presented at ZL4AA Wednesday - October 21, 2026
 
 ---
 
@@ -73,6 +76,77 @@ The abstraction is why your automations outlive your hardware.
 <!--
 Two jobs. The state engine is the interesting one for this talk;
 the abstraction layer is why it survives a trip to the hardware store.
+-->
+
+---
+
+<!-- _class: diagram -->
+
+# The whole system in one picture
+
+![w:840](assets/architecture.svg)
+
+<div class="callout quiet">
+
+Devices produce states; the core keeps them. Dashboards, apps, and automations are all clients of that one state.
+
+</div>
+
+---
+
+# A short history
+
+![w:940](assets/timeline.svg)
+
+<div class="callout quiet">
+
+One person's Python script became an appliance, a company, and a non-profit — in that order.
+
+</div>
+
+<!--
+2013: Paulus Schoutsen releases 0.1 on 17 September.
+2017: release 0.37 re-licenses the code under Apache 2.0; Hass.io (now HAOS) arrives the same year.
+2018: Nabu Casa is founded to run Home Assistant Cloud and pay contributors.
+2024: the Open Home Foundation takes ownership of the code and the brand.
+-->
+
+---
+
+# Open source, with a real license
+
+<div class="columns">
+<div>
+
+### Apache 2.0, since 0.37
+
+- Permissive: use it, modify it, ship it commercially
+- An explicit patent grant
+- No copyleft, no per-seat fee, no rug-pull
+- The code and brand are owned by the **Open Home Foundation**, a non-profit
+
+</div>
+<div>
+
+<div class="stats">
+  <div class="stat"><span>1,500+</span><small>integrations</small></div>
+  <div class="stat"><span>21,000+</span><small>contributors — most of any GitHub project</small></div>
+  <div class="stat"><span>2.7M+</span><small>households</small></div>
+  <div class="stat"><span>12</span><small>releases a year</small></div>
+</div>
+
+</div>
+</div>
+
+<div class="callout">
+
+Native **iOS and Android** apps are part of the product — free, local-first, and no cloud account required.
+
+</div>
+
+<!--
+The license matters more than the star count: Apache 2.0 means no one can take the code away,
+and the foundation means no one can sell the project out from under its users.
 -->
 
 ---
@@ -198,9 +272,9 @@ Ten questions, ten states, one vocabulary. Note how many of the right-hand answe
 
 <!-- _class: compact -->
 
-# Occupancy is a judgement call
+# Occupancy
 
-**Occupancy is not a sensor. It is a hypothesis.**
+**Occupancy is not a sensor. It is a "derived state"**
 
 <div class="columns">
 <div>
@@ -288,15 +362,17 @@ Now "is it a workday?" is just a state.
 
 <div class="callout quiet">
 
-Time is not special. It is a sensor, and it can be a trigger and a condition like anything else.
+Anything that can craft a valid "state" object can create a state. States are the building blocks of "Automations" 
 
 </div>
 
 ---
 
-# Inference: the washer is not a sensor
+# Inference: we can derive states from data
 
-![w:880](assets/power-cycle.svg)
+In this case Watts from a power monitoring plug on a washing machine
+
+![w:750](assets/power-cycle.svg)
 
 <div class="callout">
 
@@ -355,6 +431,12 @@ actions:
 
 ---
 
+# Automations in the web interface 
+
+![width:600](assets/automation.png)
+
+---
+
 # The abstraction layer
 
 **Same nouns, every product.**
@@ -385,13 +467,14 @@ This is also the answer to "will this work with my weird thing?" — usually, vi
 **HAOS image on Proxmox, KVM, or ESXi.**
 
 - Snapshots before every upgrade
-- Backups to PBS / NAS, off the host
+- Backups to NAS, off the host
 - 2 vCPU, 4 GB RAM, 32 GB disk covers most homes
 - You still get Supervisor, add-ons, and HAOS updates
+- You get the ability to run "add-ons" which are Docker containers that can add other functionality
 
 <div class="callout warn">
 
-**Radios are the catch.** USB passthrough for Zigbee/Z-Wave is fragile.
+**Zigbee Radios** USB passthrough for Zigbee/Z-Wave, or dedicated device.
 Use a USB extension cable, a powered hub, or a network coordinator
 (SLZB-06, Zigbee2MQTT, ser2net).
 
@@ -416,10 +499,10 @@ Use a USB extension cable, a powered hub, or a network coordinator
 
 **An appliance for the house.**
 
-- Home Assistant Green / Yellow
+- **Home Assistant Green**, or your own Pi / mini PC
 - Raspberry Pi 4 or 5 — **boot from SSD, never an SD card**
 - Any x86 mini PC; ARM and x86 both work
-- HAOS: updates and backups from the UI
+- HAOS gives you Supervisor, add-ons, and managed updates
 - UPS on the HA box and the network gear
 
 <div class="callout">
@@ -440,6 +523,14 @@ Keep the radio stick on a USB extension cable, away from USB 3 ports and the Pi 
 
 </div>
 </div>
+
+---
+
+#  Home Assistant Green 
+
+
+![width:800](assets/hass_green_2.png)
+
 
 ---
 
@@ -481,11 +572,108 @@ I would not recommend it for a normal home. The appliance *is* the product — t
 
 ---
 
+# Nabu Casa: the commercial half
+
+<div class="columns">
+<div>
+
+### The company
+
+- Founded in **2018** by the people behind Home Assistant
+- **No investors, no VC** — funded by customers
+- The majority of its profit goes to the **Open Home Foundation**
+- Pays full-time maintainers of Home Assistant and ESPHome
+- Designs and sells the official hardware
+
+</div>
+<div>
+
+### What it ships
+
+- **Home Assistant Cloud** — optional remote access, Alexa and Google, speech-to-text and text-to-speech
+- **iOS and Android companion apps** — free, native, and they talk directly to your instance
+- **Official hardware** — Green, Connect radios, Voice PE
+- Not the owner of the project — the foundation is
+
+</div>
+</div>
+
+<div class="callout">
+
+Nabu Casa cannot sell the project, and the project cannot be bought. That is the point of the foundation.
+
+</div>
+
+<!--
+The apps matter here: they are the daily interface for most households,
+they connect locally when they can, and they need no Nabu Casa account.
+-->
+
+---
+
+<!-- _class: compact -->
+
+# The hardware Nabu Casa built
+
+| Year | Product | What it is | Now |
+| --- | --- | --- | --- |
+| 2020 | Home Assistant Blue | First appliance: ODROID-N2+, custom case, HAOS preinstalled | Discontinued |
+| 2021 | Home Assistant Yellow | Raspberry Pi CM4 carrier, optional Zigbee/Thread radio, M.2 NVMe, PoE variant | Discontinued |
+| 2022 | Connect ZBT-1 | The first Zigbee/Thread USB radio, launched as SkyConnect | Discontinued |
+| 2023 | Home Assistant Green | Entry appliance: 1.8 GHz ARM, 4 GB RAM, 32 GB eMMC, no radios | **Current** |
+| 2024 | Voice Preview Edition | Local voice satellite: ESP32-S3, XMOS audio, physical mic mute | **Current** |
+| 2025 | Connect ZBT-2 | Zigbee/Thread radio with an external, tuned antenna | **Current** |
+| 2025 | Connect ZWA-2 | Z-Wave and Z-Wave Long Range, with a large tuned antenna | **Current** |
+
+<div class="callout quiet">
+
+Every current box runs the same Home Assistant OS you can install yourself.
+The radios are standard USB devices — ZHA, Zigbee2MQTT, and Z-Wave JS all use them.
+
+</div>
+
+---
+
+# Buy it for the convenience
+
+<div class="columns">
+<div>
+
+### What you get
+
+- Plug in power and Ethernet; onboarding does the rest
+- **Green** for the hub, **Connect ZBT-2 / ZWA-2** for radios
+- **Voice PE** for local voice, with a mute switch that cuts mic power
+- Supervisor, add-ons, updates, and backups in one UI
+- iOS and Android apps that point straight at your instance
+
+</div>
+<div>
+
+### What you don't give up
+
+- The same HAOS image as a DIY install
+- The same backup format — restore onto a Pi, VM, or mini PC
+- Standard radios, including Zigbee2MQTT and Z-Wave JS
+- Local control: no cloud account required
+- Your data stays a file on your disk
+
+</div>
+</div>
+
+<div class="callout">
+
+Buy it because you want the appliance, not because the software needs it. That distinction is the whole philosophy.
+
+</div>
+
+---
+
 # Choosing
 
 | If you want… | Pick |
 | --- | --- |
-| An appliance with the least maintenance | HAOS on dedicated hardware |
+| An appliance with the least maintenance | HAOS on Home Assistant Green (or your own box) |
 | Snapshots and an existing cluster | HAOS VM on Proxmox / KVM |
 | Everything inside one orchestrator | Container — Core only |
 | Zigbee / Z-Wave radios | Dedicated box, or a VM with USB passthrough or a network coordinator |
@@ -612,7 +800,7 @@ A home is a low-write workload with occasional bursts. This is exactly the shape
 
 <!-- _class: compact -->
 
-# Interrogate the database
+# You can interrogate the database directly
 
 ```bash
 sqlite3 -readonly config/home-assistant_v2.db
@@ -656,6 +844,8 @@ A live `cp` can capture a torn write. Use `.backup` or `VACUUM INTO`.
 
 # When SQLite is not enough
 
+Home Assistant does support Postgres
+
 <div class="columns">
 <div>
 
@@ -692,6 +882,67 @@ Move for a measured reason, not for fashion. In most homes SQLite is not the bot
 
 ---
 
+# Some screenshots 
+
+
+---
+
+<!-- _class: screenshot -->
+
+# Temp / Humidity 
+
+![alt text](assets/temp-humid.png)
+
+---
+
+<!-- _class: screenshot -->
+
+## EV 
+
+<div class="image-pair">
+
+![h:245](assets/ev-controls.png)
+
+![h:360](assets/ev-sensors.png)
+
+</div>
+
+
+---
+
+<!-- _class: screenshot -->
+
+# Mesh repeater 
+
+![alt text](assets/mesh-repeater-battery.png)
+
+---
+
+<!-- _class: screenshot -->
+
+# Mesh repeater 
+
+![alt text](assets/mesh-node-count.png)
+
+---
+
+<!-- _class: screenshot -->
+
+# Messages Per Minute - Maori Hill Repeater
+
+![alt text](assets/mesh-msgpermin.png)
+
+
+---
+
+<!-- _class: screenshot -->
+
+# Solar 
+
+![alt text](assets/solar.png)
+
+---
+
 # Recap
 
 <div class="big">
@@ -708,7 +959,7 @@ Move for a measured reason, not for fashion. In most homes SQLite is not the bot
 
 <div class="callout">
 
-The house is a database with doors. Home Assistant is how you query it.
+Thing in your house can feed a state engine. Home Assistant ties it all together.
 
 </div>
 
@@ -721,4 +972,4 @@ The house is a database with doors. Home Assistant is how you query it.
 
 ## home-assistant.io · developers.home-assistant.io · sqlite.org
 
-<p class="small">Slides: this repo — <code>npm run build</code> produces HTML, PDF, and PPTX.</p>
+https://jduckles.github.io/talkhass
