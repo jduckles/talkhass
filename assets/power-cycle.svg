@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-label="Line chart of a washing machine's power draw over 100 minutes, with an 8 watt threshold marking start and finish detection.">
+  <g font-family="Avenir Next, Segoe UI, sans-serif">
+    <!-- plot frame -->
+    <rect x="72" y="40" width="820" height="300" fill="#fbfdfe" stroke="#d3e0e8"/>
+
+    <!-- gridlines -->
+    <g stroke="#e5eef4" stroke-width="1">
+      <line x1="72" y1="115" x2="892" y2="115"/>
+      <line x1="72" y1="190" x2="892" y2="190"/>
+      <line x1="72" y1="265" x2="892" y2="265"/>
+    </g>
+
+    <!-- axis labels -->
+    <g font-size="13" fill="#5a6f7e">
+      <text x="60" y="45" text-anchor="end">2500 W</text>
+      <text x="60" y="120" text-anchor="end">1875</text>
+      <text x="60" y="195" text-anchor="end">1250</text>
+      <text x="60" y="270" text-anchor="end">625</text>
+      <text x="60" y="345" text-anchor="end">0</text>
+      <text x="80" y="366" text-anchor="start">0</text>
+      <text x="250" y="366" text-anchor="middle">20 min</text>
+      <text x="430" y="366" text-anchor="middle">40</text>
+      <text x="610" y="366" text-anchor="middle">60</text>
+      <text x="790" y="366" text-anchor="middle">80</text>
+      <text x="892" y="366" text-anchor="end">100</text>
+    </g>
+
+    <!-- 8 W threshold line: y = 340 - (8/2500)*300 = 339.04 -->
+    <line x1="72" y1="339" x2="892" y2="339" stroke="#e65100" stroke-width="1.6" stroke-dasharray="7 5"/>
+    <text x="742" y="328" text-anchor="middle" font-size="13" font-weight="700" fill="#e65100">threshold: 8 W</text>
+
+    <!-- power curve (x: 72 + min*8.2, y: 340 - W/2500*300) -->
+    <polyline fill="none" stroke="#0277bd" stroke-width="2.4" stroke-linejoin="round"
+      points="72,339.4 113,339.4 113,325.6 154,325.6 154,100 236,100 236,304 285,304 285,334 310,334 310,301.6 359,301.6 359,332.8 384,332.8 384,299.2 433,299.2 433,331.6 466,331.6 466,282.4 531,282.4 531,335.2 564,335.2 564,277.6 605,277.6 605,336.4 646,336.4 646,316 679,316 679,339.4 892,339.4"/>
+
+    <!-- running region -->
+    <rect x="154" y="40" width="525" height="300" fill="#03a9f4" opacity="0.05"/>
+
+    <!-- annotations -->
+    <circle cx="154" cy="100" r="5" fill="#03a9f4"/>
+    <text x="166" y="88" font-size="14" font-weight="600" fill="#0277bd">heating element</text>
+
+    <circle cx="310" cy="301.6" r="5" fill="#03a9f4"/>
+    <line x1="310" y1="296" x2="310" y2="238" stroke="#9fc4d6" stroke-width="1"/>
+    <text x="318" y="232" font-size="14" font-weight="600" fill="#10202b">tumble + pump</text>
+
+    <circle cx="564" cy="277.6" r="5" fill="#03a9f4"/>
+    <line x1="564" y1="272" x2="564" y2="214" stroke="#9fc4d6" stroke-width="1"/>
+    <text x="572" y="208" font-size="14" font-weight="600" fill="#10202b">spin cycle</text>
+
+    <circle cx="892" cy="339.4" r="5" fill="#e65100"/>
+    <text x="884" y="392" text-anchor="end" font-size="14" font-weight="700" fill="#e65100">done: &lt; 8 W for 5 min</text>
+
+    <text x="80" y="392" font-size="14" font-weight="600" fill="#0277bd">start: &gt; 8 W for 2 min</text>
+  </g>
+</svg>
