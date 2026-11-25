@@ -12,6 +12,24 @@ style: |
   section.diagram { padding-top: 40px; }
   .image-pair { display: flex; justify-content: center; align-items: flex-start; gap: 44px; margin-top: 0.6em; }
   .image-pair img { margin: 0; }
+  /* this deck is denser than baleen's defaults: a little more room and smaller type, so every slide fits 1280x720 */
+  section { font-size: 24px; padding: 52px 72px 64px; }
+  h1 { font-size: 48px; }
+  pre { font-size: 16px; }
+  table { font-size: 19px; }
+  .callout { font-size: 21px; padding: 12px 20px; }
+  .callout > :first-child { margin-top: 0; }
+  .columns { gap: 44px; }
+  section.compact { font-size: 20px; }
+  section.compact h1 { font-size: 42px; }
+  section.screenshot h1 { font-size: 42px; }
+  section.screenshot img { max-height: 430px; }
+  /* per-slide helpers */
+  section.small-code pre { font-size: 13px; }
+  section.small-table table { font-size: 16px; }
+  section.small-table td { padding-top: 4px; padding-bottom: 4px; }
+  .columns .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 32px; }
+  .columns .stat span { font-size: 60px; }
 ---
 
 <!-- _class: lead -->
@@ -205,6 +223,8 @@ Everything else in Home Assistant — dashboards, automations, history, voice �
 
 ---
 
+<!-- _class: small-table -->
+
 # Domains: the nouns of the house
 
 | Domain | What it models | Example |
@@ -250,7 +270,7 @@ Design automations to fail visibly, not silently.
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: compact small-table -->
 
 # What can you know about your house?
 
@@ -275,7 +295,7 @@ Ten questions, ten states, one vocabulary. Note how many of the right-hand answe
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: compact small-code -->
 
 # Occupancy
 
@@ -317,7 +337,7 @@ One sensor lies. Five sensors argue. Encode the argument once, in a template.
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: compact small-code -->
 
 # Time, sun, calendars, holidays
 
@@ -401,6 +421,9 @@ running and done are states you derive. The measurable state is power, and a dur
 
 # Automation: trigger, condition, action
 
+<div class="columns wide-left">
+<div>
+
 ```yaml
 triggers:
   - trigger: numeric_state
@@ -419,15 +442,11 @@ actions:
       message: "Washer started"
 ```
 
-<div class="columns">
+</div>
 <div>
 
 - **Trigger** — a state change, a time, the sun, a calendar event, a webhook
 - **Condition** — extra state checks; all must pass
-
-</div>
-<div>
-
 - **Action** — call a service, wait, choose, repeat
 - `for:` turns "right now" into "for two minutes"
 
@@ -438,7 +457,7 @@ actions:
 
 # Automations in the web interface 
 
-![width:600](assets/automation.png)
+![height:440](assets/automation.png)
 
 ---
 
@@ -477,6 +496,8 @@ This is also the answer to "will this work with my weird thing?" — usually, vi
 
 ---
 
+<!-- _class: compact -->
+
 # Deployment 1: a VM in your cluster
 
 **HAOS image on Proxmox, KVM, or ESXi.**
@@ -509,6 +530,8 @@ Use a USB extension cable, a powered hub, or a network coordinator
 </div>
 
 ---
+
+<!-- _class: compact -->
 
 # Deployment 2: dedicated hardware
 
@@ -544,10 +567,12 @@ Keep the radio stick on a USB extension cable, away from USB 3 ports and the Pi 
 #  Home Assistant Green 
 
 
-![width:800](assets/hass_green_2.png)
+![height:440](assets/hass_green_2.png)
 
 
 ---
+
+<!-- _class: compact -->
 
 # Deployment 3: a container
 
@@ -648,6 +673,8 @@ The radios are standard USB devices — ZHA, Zigbee2MQTT, and Z-Wave JS all use 
 </div>
 
 ---
+
+<!-- _class: compact -->
 
 # Buy it for the convenience
 
@@ -825,7 +852,7 @@ A home is a low-write workload with occasional bursts. This is exactly the shape
 
 ---
 
-<!-- _class: compact -->
+<!-- _class: compact small-code -->
 
 # You can interrogate the database directly
 
@@ -868,6 +895,8 @@ A live `cp` can capture a torn write. Use `.backup` or `VACUUM INTO`.
 </div>
 
 ---
+
+<!-- _class: compact -->
 
 # When SQLite is not enough
 
