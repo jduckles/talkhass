@@ -95,6 +95,25 @@ Notes:
 - **Layouts** use plain HTML (`<div class="columns">`, `.callout`, `.pill`,
   `.big`, `.muted`, `.small`). HTML is enabled by default in Marp CLI.
 - **Math** works via Marp's built-in KaTeX (`$…$`, `$$…$$`) if you add it.
+- **Fitting a slide**: the deck's front matter shrinks baleen's type a little for
+  this dense talk. On a slide that still runs long, add `compact` to its class,
+  and `small-code` or `small-table` if a code block or table is the culprit
+  (`<!-- _class: compact small-code -->`).
+
+### Checking that every slide fits
+
+`tools/fitcheck.py` estimates how much of each 1280×720 slide's space the
+content takes, from the Barlow font metrics and the theme's sizes. It is not a
+browser render, so treat anything over about 95% as worth a look in the preview.
+
+```sh
+npx @marp-team/marp-cli@4 slides.md --theme-set themes --html --template bare -o /tmp/bare.html
+python3 tools/fitcheck.py /tmp/bare.html .
+python3 tools/fitcheck.py /tmp/bare.html . --explain 12   # one slide, block by block
+```
+
+It needs `beautifulsoup4`, `lxml` and `Pillow`, plus the Barlow TTFs (set
+`FIT_FONTS` to their folder if they aren't in a usual font folder).
 
 ## Images
 
