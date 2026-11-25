@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" width="960" height="300" role="img" aria-label="Recorder pipeline: event bus to recorder queue, through SQLAlchemy into home-assistant_v2.db, served to history and statistics.">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5a6f7e"/>
+    </marker>
+  </defs>
+
+  <g font-family="Avenir Next, Segoe UI, sans-serif">
+    <rect x="20" y="96" width="168" height="96" rx="12" fill="#e9f1f6" stroke="#c9dae4"/>
+    <text x="104" y="132" text-anchor="middle" font-size="18" font-weight="700" fill="#10202b">Event bus</text>
+    <text x="104" y="156" text-anchor="middle" font-size="14" fill="#5a6f7e">state_changed</text>
+    <text x="104" y="176" text-anchor="middle" font-size="14" fill="#5a6f7e">every update</text>
+
+    <rect x="232" y="96" width="168" height="96" rx="12" fill="#e9f1f6" stroke="#c9dae4"/>
+    <text x="316" y="126" text-anchor="middle" font-size="18" font-weight="700" fill="#10202b">Recorder</text>
+    <text x="316" y="150" text-anchor="middle" font-size="14" fill="#5a6f7e">batched writes</text>
+    <text x="316" y="170" text-anchor="middle" font-size="14" fill="#5a6f7e">commit_interval</text>
+    <text x="316" y="190" text-anchor="middle" font-size="14" fill="#5a6f7e">SQLAlchemy</text>
+
+    <rect x="444" y="76" width="220" height="136" rx="14" fill="#0d1a23" stroke="#03a9f4" stroke-width="2"/>
+    <text x="554" y="112" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">home-assistant_v2.db</text>
+    <text x="554" y="138" text-anchor="middle" font-family="SF Mono, Menlo, monospace" font-size="13" fill="#8fd3f2">one SQLite file</text>
+    <text x="554" y="160" text-anchor="middle" font-size="13" fill="#7f9bb0">states · events</text>
+    <text x="554" y="180" text-anchor="middle" font-size="13" fill="#7f9bb0">statistics · attributes</text>
+    <text x="554" y="202" text-anchor="middle" font-size="12" fill="#e9a23b">WAL · ACID · no server</text>
+
+    <rect x="708" y="96" width="110" height="96" rx="12" fill="#e9f1f6" stroke="#c9dae4"/>
+    <text x="763" y="126" text-anchor="middle" font-size="16" font-weight="700" fill="#10202b">History</text>
+    <text x="763" y="150" text-anchor="middle" font-size="14" fill="#5a6f7e">API</text>
+    <text x="763" y="176" text-anchor="middle" font-size="13" fill="#5a6f7e">long-term</text>
+    <text x="763" y="193" text-anchor="middle" font-size="13" fill="#5a6f7e">statistics</text>
+
+    <rect x="852" y="96" width="88" height="96" rx="12" fill="#e6f4fb" stroke="#9fd3ee"/>
+    <text x="896" y="134" text-anchor="middle" font-size="16" font-weight="700" fill="#0277bd">UI</text>
+    <text x="896" y="158" text-anchor="middle" font-size="13" fill="#5a6f7e">graphs</text>
+    <text x="896" y="177" text-anchor="middle" font-size="13" fill="#5a6f7e">cards</text>
+
+    <line x1="196" y1="144" x2="224" y2="144" stroke="#5a6f7e" stroke-width="2" marker-end="url(#a)"/>
+    <line x1="408" y1="144" x2="436" y2="144" stroke="#5a6f7e" stroke-width="2" marker-end="url(#a)"/>
+    <line x1="672" y1="144" x2="700" y2="144" stroke="#5a6f7e" stroke-width="2" marker-end="url(#a)"/>
+    <line x1="826" y1="144" x2="844" y2="144" stroke="#5a6f7e" stroke-width="2" marker-end="url(#a)"/>
+
+    <text x="554" y="248" text-anchor="middle" font-size="13" fill="#5a6f7e">purge_keep_days trims raw states · statistics survive forever</text>
+  </g>
+</svg>

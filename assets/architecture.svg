@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="1000" height="470" role="img" aria-label="Block model: devices and services feed integrations and add-ons; Home Assistant Core holds the event bus, state machine, automation engine, service registry and recorder; the recorder writes SQLite; an API serves the web interface and the iOS and Android apps.">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5a6f7e"/>
+    </marker>
+    <marker id="ar-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0277bd"/>
+    </marker>
+  </defs>
+
+  <g font-family="Avenir Next, Segoe UI, sans-serif">
+    <!-- category labels -->
+    <text x="16" y="72" font-size="12" letter-spacing="1.3" fill="#5a6f7e">DEVICES</text>
+    <text x="205" y="92" font-size="12" letter-spacing="1.3" fill="#5a6f7e">EXTENSIONS</text>
+    <text x="805" y="42" font-size="12" letter-spacing="1.3" fill="#5a6f7e">CLIENTS</text>
+
+    <!-- devices -->
+    <rect x="16" y="84" width="165" height="256" rx="12" fill="#e9f1f6" stroke="#c9dae4"/>
+    <text x="32" y="116" font-size="16" font-weight="700" fill="#10202b">Devices &amp;</text>
+    <text x="32" y="136" font-size="16" font-weight="700" fill="#10202b">services</text>
+    <text x="32" y="170" font-size="13.5" fill="#5a6f7e">lights · locks</text>
+    <text x="32" y="190" font-size="13.5" fill="#5a6f7e">sensors · cameras</text>
+    <text x="32" y="210" font-size="13.5" fill="#5a6f7e">calendars · media</text>
+    <text x="32" y="230" font-size="13.5" fill="#5a6f7e">weather · phones</text>
+    <text x="32" y="264" font-size="12" fill="#8aa2b1">Zigbee · Z-Wave</text>
+    <text x="32" y="282" font-size="12" fill="#8aa2b1">Matter · Wi-Fi · BLE</text>
+
+    <!-- extensions -->
+    <rect x="205" y="104" width="150" height="216" rx="12" fill="#e9f1f6" stroke="#c9dae4"/>
+    <text x="221" y="136" font-size="16" font-weight="700" fill="#10202b">Integrations</text>
+    <text x="221" y="156" font-size="13.5" fill="#5a6f7e">&amp; add-ons</text>
+    <text x="221" y="188" font-size="12.5" fill="#5a6f7e">Zigbee · Z-Wave</text>
+    <text x="221" y="206" font-size="12.5" fill="#5a6f7e">Matter · MQTT</text>
+    <text x="221" y="224" font-size="12.5" fill="#5a6f7e">ESPHome · Frigate</text>
+    <text x="221" y="242" font-size="12.5" fill="#5a6f7e">vendor clouds</text>
+    <text x="221" y="276" font-size="12" fill="#8aa2b1">translate each</text>
+    <text x="221" y="294" font-size="12" fill="#8aa2b1">protocol into</text>
+    <text x="221" y="312" font-size="12" fill="#8aa2b1">entities</text>
+
+    <!-- core -->
+    <rect x="380" y="30" width="320" height="325" rx="14" fill="#0d1a23" stroke="#03a9f4" stroke-width="2"/>
+    <text x="396" y="58" font-size="16" font-weight="700" fill="#ffffff">Home Assistant Core</text>
+
+    <rect x="396" y="70" width="288" height="42" rx="6" fill="#132a38" stroke="#2b4b5e"/>
+    <text x="410" y="96" font-size="14" font-weight="600" fill="#8fd3f2">Event bus</text>
+    <text x="670" y="96" text-anchor="end" font-size="11" fill="#6f8b9b">every change</text>
+
+    <rect x="396" y="120" width="288" height="50" rx="6" fill="#132a38" stroke="#2b4b5e"/>
+    <text x="410" y="142" font-size="14" font-weight="600" fill="#8fd3f2">State machine</text>
+    <text x="410" y="159" font-size="11" fill="#6f8b9b">one live truth: entity → state</text>
+
+    <rect x="396" y="178" width="288" height="38" rx="6" fill="#132a38" stroke="#2b4b5e"/>
+    <text x="410" y="202" font-size="14" font-weight="600" fill="#8fd3f2">Automation engine</text>
+
+    <rect x="396" y="224" width="288" height="38" rx="6" fill="#132a38" stroke="#2b4b5e"/>
+    <text x="410" y="248" font-size="14" font-weight="600" fill="#8fd3f2">Service registry</text>
+
+    <rect x="396" y="270" width="288" height="38" rx="6" fill="#132a38" stroke="#2b4b5e"/>
+    <text x="410" y="294" font-size="14" font-weight="600" fill="#ffcc80">Recorder</text>
+    <text x="670" y="294" text-anchor="end" font-size="11" fill="#6f8b9b">batched writes</text>
+
+    <text x="540" y="336" text-anchor="middle" font-size="11" fill="#7f9bb0">one asyncio process</text>
+
+    <!-- api -->
+    <rect x="720" y="130" width="66" height="140" rx="8" fill="#e6f4fb" stroke="#9fd3ee"/>
+    <text x="753" y="172" text-anchor="middle" font-size="14" font-weight="700" fill="#0277bd">API</text>
+    <text x="753" y="194" text-anchor="middle" font-size="11" fill="#5a6f7e">WS</text>
+    <text x="753" y="210" text-anchor="middle" font-size="11" fill="#5a6f7e">REST</text>
+
+    <!-- clients -->
+    <rect x="805" y="55" width="175" height="90" rx="10" fill="#e9f1f6" stroke="#c9dae4"/>
+    <text x="892" y="88" text-anchor="middle" font-size="15" font-weight="700" fill="#10202b">Web interface</text>
+    <text x="892" y="109" text-anchor="middle" font-size="12" fill="#5a6f7e">dashboards · history</text>
+    <text x="892" y="127" text-anchor="middle" font-size="12" fill="#5a6f7e">automation editor</text>
+
+    <rect x="805" y="160" width="175" height="80" rx="10" fill="#e9f1f6" stroke="#c9dae4"/>
+    <text x="892" y="192" text-anchor="middle" font-size="15" font-weight="700" fill="#10202b">iOS app</text>
+    <text x="892" y="213" text-anchor="middle" font-size="12" fill="#5a6f7e">control · notify · presence</text>
+
+    <rect x="805" y="255" width="175" height="80" rx="10" fill="#e9f1f6" stroke="#c9dae4"/>
+    <text x="892" y="287" text-anchor="middle" font-size="15" font-weight="700" fill="#10202b">Android app</text>
+    <text x="892" y="308" text-anchor="middle" font-size="12" fill="#5a6f7e">control · notify · presence</text>
+
+    <!-- database -->
+    <path d="M430 388 v52 a110 10 0 0 0 220 0 v-52" fill="#fdf0e6" stroke="#e0a36b"/>
+    <ellipse cx="540" cy="388" rx="110" ry="10" fill="#fbe3d0" stroke="#e0a36b"/>
+    <text x="540" y="416" text-anchor="middle" font-size="14" font-weight="700" fill="#8a4b12">SQLite database</text>
+    <text x="540" y="434" text-anchor="middle" font-size="11.5" fill="#a2601f">states · events · statistics</text>
+
+    <!-- flows -->
+    <line x1="181" y1="212" x2="203" y2="212" stroke="#5a6f7e" stroke-width="2" marker-end="url(#ar)"/>
+    <line x1="355" y1="212" x2="378" y2="212" stroke="#5a6f7e" stroke-width="2" marker-end="url(#ar)"/>
+    <line x1="700" y1="200" x2="718" y2="200" stroke="#5a6f7e" stroke-width="2" marker-end="url(#ar)"/>
+    <line x1="786" y1="200" x2="803" y2="200" stroke="#5a6f7e" stroke-width="2" marker-end="url(#ar)"/>
+
+    <line x1="540" y1="308" x2="540" y2="386" stroke="#e0a36b" stroke-width="2" marker-end="url(#ar)"/>
+    <text x="550" y="374" font-size="11" fill="#a2601f">write</text>
+
+    <!-- api client bus -->
+    <line x1="792" y1="100" x2="792" y2="295" stroke="#0277bd" stroke-width="1.6" stroke-dasharray="5 4"/>
+    <line x1="792" y1="100" x2="803" y2="100" stroke="#0277bd" stroke-width="1.6" marker-end="url(#ar-blue)"/>
+    <line x1="792" y1="200" x2="803" y2="200" stroke="#0277bd" stroke-width="1.6" marker-end="url(#ar-blue)"/>
+    <line x1="792" y1="295" x2="803" y2="295" stroke="#0277bd" stroke-width="1.6" marker-end="url(#ar-blue)"/>
+
+  </g>
+</svg>
