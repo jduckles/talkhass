@@ -22,7 +22,7 @@ PROFILES = dict(
                 compact=dict(size=21, h1=44)),
     # baleen plus the deck-level style in talkhass/slides.md
     talkhass=dict(pad=(52, 72, 64), size=24, lh=1.4, h1=48, pre=16, table=19, callout=21, gap=44,
-                  cpad=(12, 20), shot=430, callout_mt0=True, shot_h1=42, compact=dict(size=20, h1=42)),
+                  cpad=(12, 20), shot=400, callout_mt0=True, shot_h1=42, compact=dict(size=20, h1=42)),
     hass=dict(pad=(46, 64, 58), size=24, lh=1.45, h1=46, pre=15.5, table=19, callout=22, gap=40,
               compact=dict(size=21, h1=40, pre=13, table=17, callout=19)),
 )

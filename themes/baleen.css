@@ -206,7 +206,9 @@ section.dark::after { background-image: url('data:image/svg+xml;base64,PHN2ZyB4b
 
 /* a slide that is one figure from baleen: no extra padding fights the chart's own */
 section.figure { padding: 0; }
-section.figure img { width: 100%; height: 100%; object-fit: contain; }
+/* the figure's paragraph would add 1em above and below, pushing a 16:9 figure 24px off the bottom */
+section.figure p { margin: 0; height: 100%; }
+section.figure img { display: block; width: 100%; height: 100%; object-fit: contain; }
 section.figure footer, section.figure::after { display: none; }
 
 section.compact { font-size: 21px; }
@@ -321,4 +323,4 @@ th {
 td { border: none; border-bottom: 1px solid var(--bl-line); padding: 8px 16px 8px 0; background: none; }
 tr { background: none !important; }
 
-img { background: none; }
+img { background: none; max-width: 100%; }

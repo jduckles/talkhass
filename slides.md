@@ -25,7 +25,7 @@ style: |
   section.compact { font-size: 20px; }
   section.compact h1 { font-size: 42px; }
   section.screenshot h1 { font-size: 42px; }
-  section.screenshot img { max-height: 430px; }
+  section.screenshot img { max-height: 400px; }
   /* per-slide helpers */
   section.small-code pre { font-size: 13px; }
   section.small-table table { font-size: 16px; }
@@ -459,7 +459,7 @@ actions:
 
 # Automations in the web interface 
 
-![height:440](assets/automation.png)
+![height:400](assets/automation.png)
 
 ---
 
@@ -569,7 +569,7 @@ Keep the radio stick on a USB extension cable, away from USB 3 ports and the Pi 
 #  Home Assistant Green 
 
 
-![height:440](assets/hass_green_2.png)
+![height:400](assets/hass_green_2.png)
 
 
 ---
@@ -964,9 +964,9 @@ Move for a measured reason, not for fashion. In most homes SQLite is not the bot
 
 <div class="image-pair">
 
-![h:245](assets/ev-controls.png)
+![h:225](assets/ev-controls.png)
 
-![h:360](assets/ev-sensors.png)
+![h:330](assets/ev-sensors.png)
 
 </div>
 
