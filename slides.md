@@ -14,6 +14,8 @@ style: |
   .image-pair img { margin: 0; }
   /* this deck is denser than baleen's defaults: a little more room and smaller type, so every slide fits 1280x720 */
   section { font-size: 24px; padding: 52px 72px 64px; }
+  footer { left: 72px; }
+  section::after { right: 72px; }
   h1 { font-size: 48px; }
   pre { font-size: 16px; }
   table { font-size: 19px; }
