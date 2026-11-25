@@ -163,7 +163,9 @@ section::after {
   right: 80px;
   bottom: 24px;
   left: auto;
-  padding-right: 44px;
+  /* Marpit's own rule sets padding: inherit, which would add the slide's padding */
+  padding: 0 44px 0 0;
+  line-height: 20px;
   font-family: var(--bl-font-label);
   font-weight: 600;
   font-size: 15px;
