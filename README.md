@@ -9,14 +9,25 @@ the three ways to run it, the project's history, and the hardware Nabu Casa buil
 | Path | Purpose |
 | --- | --- |
 | `slides.md` | The deck. Marp frontmatter + Markdown, one `---` per slide. |
-| `themes/hass.css` | Custom Marp theme (`theme: hass`). Reskin the deck here. |
-| `assets/state-loop.svg` | Diagram: devices → integrations → state machine → automations. |
-| `assets/recorder.svg` | Diagram: event bus → recorder → SQLite → history. |
-| `assets/timeline.svg` | Diagram: project history from 2013 to today. |
-| `assets/architecture.svg` | Block model: core, extensions, database, web UI, mobile apps. |
-| `assets/power-cycle.svg` | Chart: appliance power draw with start/finish thresholds. |
+| `themes/baleen.css` | The [baleen](https://github.com/jduckles/visual) Marp theme (`theme: baleen`), copied from jduckles/visual. |
+| `themes/hass.css` | The earlier theme (`theme: hass`), kept for reference. |
+| `figures.py` | Draws every diagram and chart in `assets/baleen/` in the baleen style. |
+| `data/` | Washer, solar and mesh data for the charts, digitised from dashboard screenshots (approximate). |
+| `assets/baleen/` | The diagrams and charts the deck uses (SVG and PNG). |
+| `assets/*.svg` | The original hand-drawn diagrams, kept for reference. |
 | `package.json` | Marp CLI scripts. |
 | `.github/workflows/pages.yml` | CI: build the deck and publish it to the `html` branch. |
+
+## Figures
+
+```bash
+pip install "baleen[all] @ git+https://github.com/jduckles/visual@baleen-v0.1"
+baleen fonts install
+python3 figures.py            # all figures
+python3 figures.py solar      # one figure
+```
+
+The figures are committed, so building the deck needs only Marp.
 
 ## Build
 

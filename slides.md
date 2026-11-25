@@ -1,15 +1,24 @@
 ---
 marp: true
-theme: hass
+theme: baleen
 size: 16:9
 paginate: true
-footer: 'Home Assistant · a state engine for your house'
-highlight: github-dark
+footer: 'Home Assistant · a state engine for your house · ZL4EKA'
+title: Home Assistant
+description: A state engine for your house
+author: Jonah Duckles (ZL4EKA)
+style: |
+  /* two classes this deck had in its old theme */
+  section.diagram { padding-top: 40px; }
+  .image-pair { display: flex; justify-content: center; align-items: flex-start; gap: 44px; margin-top: 0.6em; }
+  .image-pair img { margin: 0; }
 ---
 
 <!-- _class: lead -->
 <!-- _footer: '' -->
 <!-- _paginate: false -->
+
+![bg right:42% contain](assets/whale-tile.svg)
 
 # Home Assistant
 
@@ -80,29 +89,15 @@ the abstraction layer is why it survives a trip to the hardware store.
 
 ---
 
-<!-- _class: diagram -->
+<!-- _class: figure -->
 
-# The whole system in one picture
-
-![w:840](assets/architecture.svg)
-
-<div class="callout quiet">
-
-Devices produce states; the core keeps them. Dashboards, apps, and automations are all clients of that one state.
-
-</div>
+![The whole system in one picture: devices produce states, the core keeps them, and dashboards, apps and automations are all clients of that one state](assets/baleen/architecture.svg)
 
 ---
 
-# A short history
+<!-- _class: figure -->
 
-![w:940](assets/timeline.svg)
-
-<div class="callout quiet">
-
-One person's Python script became an appliance, a company, and a non-profit — in that order.
-
-</div>
+![A short history: one person's Python script became an appliance, a company, and a non-profit, in that order](assets/baleen/timeline.svg)
 
 <!--
 2013: Paulus Schoutsen releases 0.1 on 17 September.
@@ -148,6 +143,16 @@ Native **iOS and Android** apps are part of the product — free, local-first, a
 The license matters more than the star count: Apache 2.0 means no one can take the code away,
 and the foundation means no one can sell the project out from under its users.
 -->
+
+---
+
+<!-- _class: section -->
+
+![bg right:38%](assets/facets-section.svg)
+
+### Part one
+
+# States are the nouns
 
 ---
 
@@ -368,29 +373,29 @@ Anything that can craft a valid "state" object can create a state. States are th
 
 ---
 
-# Inference: we can derive states from data
+<!-- _class: section -->
 
-In this case Watts from a power monitoring plug on a washing machine
+![bg right:38%](assets/facets-section.svg)
 
-![w:750](assets/power-cycle.svg)
+### Part two
 
-<div class="callout">
-
-`running` and `done` are states you **derive**. The measurable state is power, and a duration turns an instant into a fact.
-
-</div>
+# Automations are the verbs
 
 ---
 
-# The loop
+<!-- _class: figure -->
 
-![w:900](assets/state-loop.svg)
+![Inference: watts from a power monitoring plug on a washing machine become two derived states, running and done](assets/baleen/power-cycle.svg)
 
-<div class="callout quiet">
+<!--
+running and done are states you derive. The measurable state is power, and a duration turns an instant into a fact.
+-->
 
-Something changed → is it my business? → do something. Every automation is that shape.
+---
 
-</div>
+<!-- _class: figure -->
+
+![The loop: something changed, is it my business, do something. Every automation is that shape](assets/baleen/state-loop.svg)
 
 ---
 
@@ -459,6 +464,16 @@ If it can be observed, it can be an entity. If it can be acted on, it can be a s
 Protocols come and go. The vocabulary does not.
 This is also the answer to "will this work with my weird thing?" — usually, via an integration.
 -->
+
+---
+
+<!-- _class: section -->
+
+![bg right:38%](assets/facets-section.svg)
+
+### Part three
+
+# Running it
 
 ---
 
@@ -687,6 +702,16 @@ The state engine is the same in all three. Only the packaging changes.
 
 ---
 
+<!-- _class: section -->
+
+![bg right:38%](assets/facets-section.svg)
+
+### Part four
+
+# Under the hood
+
+---
+
 # Under the hood
 
 <div class="columns">
@@ -708,9 +733,11 @@ The state engine is the same in all three. Only the packaging changes.
 </div>
 </div>
 
-<br>
+---
 
-![w:860](assets/recorder.svg)
+<!-- _class: figure -->
+
+![The recorder is just another subscriber on the event bus, writing in batches to one SQLite file](assets/baleen/recorder.svg)
 
 <!--
 The event bus is the spine. Recorder is just another subscriber —
@@ -882,22 +909,27 @@ Move for a measured reason, not for fashion. In most homes SQLite is not the bot
 
 ---
 
-# Some screenshots 
+<!-- _class: section -->
 
+![bg right:38%](assets/facets-section.svg)
 
----
+### Part five
 
-<!-- _class: screenshot -->
-
-# Temp / Humidity 
-
-![alt text](assets/temp-humid.png)
+# From my house
 
 ---
 
 <!-- _class: screenshot -->
 
-## EV 
+# Inside 19.8 °C, outside 16.3 °C: every card is one state
+
+![Home Assistant cards for temperature and humidity, inside and outside](assets/temp-humid.png)
+
+---
+
+<!-- _class: screenshot -->
+
+# The EV is just more entities
 
 <div class="image-pair">
 
@@ -912,34 +944,30 @@ Move for a measured reason, not for fashion. In most homes SQLite is not the bot
 
 <!-- _class: screenshot -->
 
-# Mesh repeater 
+# The Maori Hill repeater's battery stayed between 83% and 94% in October
 
-![alt text](assets/mesh-repeater-battery.png)
-
----
-
-<!-- _class: screenshot -->
-
-# Mesh repeater 
-
-![alt text](assets/mesh-node-count.png)
+![MeshCore repeater battery percentage, October 1 to 19](assets/mesh-repeater-battery.png)
 
 ---
 
 <!-- _class: screenshot -->
 
-# Messages Per Minute - Maori Hill Repeater
+# My node went from 1 to 9 known nodes by May
 
-![alt text](assets/mesh-msgpermin.png)
+![MeshCore node count for EKA-3, February to October](assets/mesh-node-count.png)
+
+---
+
+<!-- _class: figure -->
+
+![Messages per minute at the Maori Hill repeater, with three drops to zero](assets/baleen/mesh-msgpermin.svg)
 
 
 ---
 
-<!-- _class: screenshot -->
+<!-- _class: figure -->
 
-# Solar 
-
-![alt text](assets/solar.png)
+![Solar used at home, from the grid and sent to the grid, per day in April](assets/baleen/solar.svg)
 
 ---
 
@@ -959,7 +987,7 @@ Move for a measured reason, not for fashion. In most homes SQLite is not the bot
 
 <div class="callout">
 
-Thing in your house can feed a state engine. Home Assistant ties it all together.
+Anything in your house can feed a state engine. Home Assistant ties it all together.
 
 </div>
 
@@ -967,6 +995,9 @@ Thing in your house can feed a state engine. Home Assistant ties it all together
 
 <!-- _class: lead -->
 <!-- _footer: '' -->
+<!-- _paginate: false -->
+
+![bg right:42% contain](assets/whale-tile.svg)
 
 # Questions?
 
